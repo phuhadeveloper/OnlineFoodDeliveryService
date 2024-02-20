@@ -1,5 +1,19 @@
 package bag;
 
+/**
+ * This is the BagInterface
+ * methods
+ *  +add
+ *  +remove
+ *  +clear
+ *  +toArray
+ *  +contains
+ *  +frequencyOf
+ *  
+ *  author: Phu Ha
+ *  February 18, 2024
+ */
+
 public interface BagInterface<T> {
 	public boolean add(T newEntry);
 		// add a new entry to the  bag

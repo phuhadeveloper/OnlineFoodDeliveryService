@@ -1,5 +1,12 @@
 package bag;
 
+/**
+ * This class represent the Item that will be added to the Shopping Cart
+ * 
+ * author: Phu Ha
+ * Date: February 18, 2024
+ */
+
 public class CartItem {
 	private int customerNumber;
 	private String itemName;
@@ -21,9 +28,12 @@ public class CartItem {
 	public void setCustomerNumber(int custNo) {this.customerNumber = custNo;}
 	public void setItemName(String itemName) {this.itemName = itemName;}
 	public void setPrice(double price) {this.price = price;}
+
 	
 	// equals, check if two CartItems are equal
-	public boolean equals(CartItem item) {
+	@Override
+	public boolean equals(Object o) {
+		CartItem item = (CartItem)o;
 		// compare customer number
 		if (this.customerNumber != item.getCustomerNumber()) return false;
 		
@@ -31,8 +41,12 @@ public class CartItem {
 		if (this.itemName.compareTo(item.getItemName()) != 0) return false;
 		
 		// lastly, compare the price
-		if (Math.abs(this.price - item.getPrice()) <= 0.000001 ) return true;
-		else return false;
+		if (Math.abs(this.price - item.getPrice()) <= 0.000001 ) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 
 	

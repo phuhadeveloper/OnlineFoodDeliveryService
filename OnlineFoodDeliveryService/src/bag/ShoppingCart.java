@@ -1,5 +1,17 @@
 package bag;
 
+import java.util.Arrays;
+
+/**
+ * This class is the Shopping Cart that implements the BagInterface
+ * 
+ * This implementation uses a fixed size array, default capacity of 25
+ * 
+ * author: Phu Ha
+ * Date: February 18, 2024
+ * 
+ */
+
 public class ShoppingCart<T> implements BagInterface<T> {
 	private T[] myBag;
 	private int numberOfProducts;
@@ -95,7 +107,7 @@ public class ShoppingCart<T> implements BagInterface<T> {
 	// find index of the entry in the bag, return -1 if not in the bag
 	private int getIndexOf(T item) {
 		for (int i = 0; i < numberOfProducts; i++ ) {
-			if (myBag.equals(item)) return i;
+			if (myBag[i].equals(item)) return i;
 		}
 		return -1;
 	}
@@ -109,6 +121,17 @@ public class ShoppingCart<T> implements BagInterface<T> {
 		numberOfProducts--;
 	}
 	
-	// list of custom Exceptions
+	public static void main(String[] args) {
+		try {
+			CartItem item = new CartItem(123, "Fruit", 2.22);
+			ShoppingCart<CartItem> cart = new ShoppingCart<>(3);
+			System.out.println(cart.add(item));
+			System.out.println(cart.getIndexOf(item));
+			System.out.println(cart.remove(item));
+			System.out.println(Arrays.toString(cart.toArray()));
+		} catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 
 }
